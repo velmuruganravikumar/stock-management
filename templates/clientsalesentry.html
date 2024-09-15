@@ -1,0 +1,104 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+   
+
+
+  <!-- search invoice -->
+<div class="dashboard-content cl-sl">
+    <section class="add-con"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Client Sales Entry</h4>
+                    <div class="card-body bg-dark ">
+                        <form action="{% url 'client_Sales' %}"  method="post">
+                        {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="Name" class="text-white">select client name</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="clientname">
+                                        {% for name in clientName %} 
+                                        <option>{{name.client_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Name" class="text-white">select shop name</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="shopname">
+                                        {% for shopname in clientName %} 
+                                        <option>{{shopname.shop_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="date" class="text-white">Date</label>
+                                    <input type="date" class="form-control" id="date" placeholder="Date" name="date">
+                                </div>
+                            </div> 
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="Name" class="text-white">Select Master Product</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="select_category">
+                                        {% for category in salcat %} 
+                                        <option >{{category.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Name" class="text-white">Select Sub Product</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="select_product">
+                                        {% for results in salpro %} 
+                                        <option >{{results.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="mrp" class="text-white">MRP</label>
+                                    <input type="text" class="form-control" id="Name" placeholder="MRP" name="mrp">
+                                </div>
+                            </div> 
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                <label for="qty" class="text-white">QTY</label>
+                                <input type="number" class="form-control" id="integer" placeholder="QTY" name="qty">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Name" class="text-white">RATE</label>
+                                    <input type="text" class="form-control" id="Name" placeholder="RATE" name="rate">
+                                </div>
+                            </div> 
+                             <button type="submit" class="btn btn-success btn-block bts">submit</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+     </section>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

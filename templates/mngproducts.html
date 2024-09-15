@@ -1,0 +1,51 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+
+
+
+<div class="dashboard-content">
+    <section class="add-con"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8">
+                    
+                        <h3>Manage Sub Product</h3>
+                        <table class="table table-bordered table-striped ">
+                            <thead class="table-dark">
+                              <tr>
+                                <th scope="col">S.no</th>
+                                <th scope="col">Categories</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            {% for products in mng_products%}
+                            <tbody>
+                              <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{products.category}}</td>
+                                <td>{{products.name}}</td>
+                                <td>
+                                   <a href="{% url 'product_update' products.id %}"><button class="btn btn-primary btn-sm">Update</button></a>
+                                </td>
+                                 <td>
+                                  <a href="{% url 'product_delete' products.id %}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                 </td>
+                              
+                              </tr>
+                            </tbody>
+                            {% endfor%}
+                        </table>
+                     
+                </div>
+            </div>
+        </div>
+
+     </section>
+
+</div>
+
+{% endblock %}

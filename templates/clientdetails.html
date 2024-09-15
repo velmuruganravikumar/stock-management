@@ -1,0 +1,57 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+
+
+
+<!-- client detailes -->
+<div class="dashboard-content c-d">
+    <section class="add-con cd"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                          <div class="d-flex">
+                            <h4>Client Details</h4>
+                            <h4><a href="{% url 'clientsales_filter'%}" style="margin-left:600px;">Viewsales</a></h4>
+                          </div>
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                              <tr>
+                                <th scope="col">S.no</th>
+                                <th scope="col">Client Name</th>
+                                <th scope="col">shop Name</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            {% for details in clientdatails%}
+                            <tbody>
+                              <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{details.client_name}}</td>
+                                <td>{{details.shop_name}}</td>
+                                <td>{{details.mobile}}</td>
+                                <td>{{details.location}}</td>
+                                <td>
+                                  <a href="{% url 'update_client' details.id %}"><button  class="btn btn-primary btn-sm">update</button></a>
+                                </td>
+                                <td>
+                                  <a href="{% url 'delete_client' details.id %}"><button class="btn btn-danger btn-sm">delete</button></a>
+                                </td>
+                              </tr>
+                            
+                            </tbody>
+                            {% endfor %}
+                        </table>                    
+                </div>
+            </div>
+        </div>
+
+     </section>
+
+</div>
+
+{% endblock %}

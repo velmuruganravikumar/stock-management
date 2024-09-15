@@ -1,0 +1,72 @@
+{% include 'navbar.html' %}
+{% block content%}
+<div class="dashboard-content col-lg-9">  
+  <h4 class="text-center">CUSTOMER BILL</h4>
+    <div class="card-body">
+      <form action="{% url 'customer_bill' %}" method="post">
+        {%  csrf_token %}
+            <div class="row mt-2">
+              <div class="col-12">
+                <table class="table" id="bill-table">
+                  <thead class="table-dark">
+
+                    <tr>
+                      
+                      <th scope="col">Category</th>
+                      <th scope="col">Qty</th>
+                      <th scope="col">Mrp</th>
+                      <th scope="col">Rate</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    <tr class="bill-row">
+                      
+                      <td>
+                        <input type="text" name="category"/>
+                      </td>
+                      <td>
+                        <input type="number" name="qty"/>
+                      </td>
+                      <td>
+                        <input type="number" name="mrp"/>
+                      </td>
+                      <td>
+                        <input type="number" name="rate"/>
+                      </td>
+                    </tr>
+                  </tbody>    
+              </table> 
+              <button type="button" class="btn btn-success  btn-sm" id="add-row">Add Row</button>
+              <button type="submit" class="btn btn-success  btn-sm">Submit</button>
+
+
+              </div>
+          
+
+            </div>
+      </form>
+
+    {% comment %} card body end {% endcomment %} 
+    </div>
+   {% comment %} card end {% endcomment %}
+  </div>
+{% comment %} container end {% endcomment %}
+</div>
+<script>
+  document.getElementById('add-row').addEventListener('click', function() {
+    let table = document.getElementById('bill-table').getElementsByTagName('tbody')[0];
+    let newRow = table.rows[0].cloneNode(true);
+    let inputs = newRow.getElementsByTagName('input');
+
+    for(let i = 0; i < inputs.length; i++) {
+        inputs[i].value = ''; // Clear the input values
+    }
+
+    table.appendChild(newRow);
+});
+
+</script>
+
+
+{% endblock %}

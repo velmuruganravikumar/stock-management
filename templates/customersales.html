@@ -1,0 +1,95 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+
+
+  <!-- search invoice -->
+<div class="dashboard-content cu-sl">
+    <section class="add-con"> 
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card bg-dark text-white cu-slent">
+
+                  <div class="card-header">
+                    <div class="card-header text-center">
+                      <h4>Customer Sales Entry</h4>
+                    </div>
+                    <form action="{% url 'customer_Sales' %}" method="post" >
+                      {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Name">Customer-Name</label>
+                                <input type="text" class="form-control" id="Name" name="customername" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Mobile">Date</label>
+                                <input type="date" class="form-control" id="Mobile" placeholder="Date" name="date">
+                             </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Name">Mobile</label>
+                                <input type="text" class="form-control" id="Name" placeholder="Mobile" name="mobile">
+                            </div>
+                            <div class="form-group col-md-6">
+                               <label for="text">Location</label>
+                               <input type="text" class="form-control" id="text" placeholder="Location" name="location">
+                            </div>
+                        </div> 
+                        
+                          <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label for="Name">Select Master Product</label>
+                              <select class="form-select form-control" aria-label="Default select example" name="select_category">
+                                  {% for category in select_cat %} 
+                                  <option value="{{category.id}}">{{category.name}}</option>
+                                  {% endfor %}
+                              </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="Name">Select Master Product</label>
+                              <select class="form-select form-control" aria-label="Default select example" name="select_product">
+                                  {% for product in select_pro %} 
+                                  <option value="{{product.id}}">{{product.name}}</option>
+                                  {% endfor %}
+                              </select>
+                            </div>
+                              <div class="form-group col-md-4">
+                                  <label for="Name">MRP</label>
+                                  <input type="text" class="form-control" id="Name" placeholder="RATE" name="mrp">
+                              </div>
+                          </div> 
+                          <div class="form-row">
+                              <div class="form-group col-md-4">
+                                 <label for="Mobile">QTY</label>
+                                 <input type="number" class="form-control" id="Mobile" placeholder="QTY" name="qty">
+                              </div>
+                              <div class="form-group col-md-4">
+                                  <label for="Name">RATE</label>
+                                  <input type="text" class="form-control" id="Name" placeholder="RATE" name="rate">
+                              </div>
+               
+                          </div> 
+                          <div class="form-row">
+                          </div> 
+                          <button type="submit" class="btn btn-success btn-block btn-sm">submit</button>
+            
+                          
+                      
+
+                    </form>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+        </div>
+     </section>
+</div>
+
+
+{% endblock %}

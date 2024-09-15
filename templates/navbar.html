@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Sidebar Example</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+      
+<!-- navbar -->
+
+<nav class="navbar navbar-light bg-light justify-content-between fixed-top" id="nav">
+  <a class="navbar-brand"><b>STOCK MANAGEMENT SYSTEM</b></a>
+  <form class="form-inline">
+    <a href="{% url 'logout' %}" ><i class="fas fa-sign-out logout"></i>Log-out</a>
+  </form>
+</nav>
+
+<!-- Sidebar -->
+
+<nav class=" d-md-block  sidebar" style="min-width:17vw;">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+
+          <li class="nav-item p-2 border-bottom" onclick="dropdown(0)">
+            <a class="h2 nav-link text-white" href="#"><i class="fas fa-user"></i>Admin</a>
+            <ul class="down">
+              <li><a href="{% url 'adminmng' %}" class="nav-link text-white">Manage your Account</a></li>
+              <li><a href="{% url 'addadmin' %}" class="nav-link text-white">Add Another Account</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item p-2 mt-3 {% if request.path == '/dashboard' %}active{% endif %}">
+            
+            <a class="nav-link text-white" href="{% url 'dashboard' %} "><i class="fas fa-qrcode"></i>
+              Dashboard
+            </a>
+          </li>
+
+         <li class="nav-item p-2" onclick="dropdown(1)">
+          <a class="nav-link text-white" href="#"><i class="fas fa-link"></i>categories</a>
+            <ul class="down">
+              <li><a class="nav-link text-white" href="{% url 'addcategories' %}">Add categories</a></li>
+              <li><a class="nav-link text-white" href="{% url 'managecategories' %}">Manage categories </a></li>
+            </ul>
+         </li>
+
+        <li class="nav-item p-2" onclick="dropdown(2)">
+          <a class="nav-link text-white" href="#"><i class="fas fa-stream"></i>Products</a>
+          <ul class="down">
+            <li><a class="nav-link text-white" href="{% url 'addproducts' %} ">Add Products</a></li>
+            <li><a class="nav-link text-white" href="{% url 'manageproducts' %}">Manage Products</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item p-2"  onclick="dropdown(3)">
+          <a class="nav-link text-white" href="#"><i class="fas fa-calendar-week"></i>Invoice</a>
+           <ul class="down">
+             <li><a class="nav-link text-white" href=" {% url 'create_invoice' %}">Creat Invoice</a></li>
+             <li><a class="nav-link text-white" href=" {% url 'manage_invoice' %}">Manage Invoice</a></li>
+             <li><a class="nav-link text-white" href=" {% url 'search_invoice' %}">Search Invoice</a></li>
+           </ul>
+        </li>
+
+        <li class="nav-item p-2" onclick="dropdown(4)">
+          <a class="nav-link text-white" href="#"><i class="fas fa-question-circle"></i>clients</a>
+          <ul class="down">
+            <li><a class="nav-link text-white" href=" {% url 'add_client' %}">Add Client</a></li>
+            <li><a class="nav-link text-white" href=" {% url 'client_Sales' %}">Client Sales Entry</a></li>
+            {% comment %} <li><a class="nav-link text-white" href=" {% url 'clientsales_manage'%}">Client Sales Manage</a></li> {% endcomment %}
+            <li><a class="nav-link text-white" href=" {% url 'client_Details'%}">Client Details</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item p-2" onclick="dropdown(5)">
+          <a class="nav-link text-white" href="#"><i class="fas fa-sliders-h"></i>Customers</a>
+          <ul class="down">
+            <li><a class="nav-link text-white" href=" {% url 'customer_Sales' %}">Customer Sales Entry</a></li>
+            <li><a class="nav-link text-white" href=" {% url 'customermanage' %}">Customer Manage</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item p-2 ">
+          <a class="nav-link text-white" href="{% url 'stock_Report' %}"><i class="fas fa-comments"></i>
+            Stock-Reports
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<script src="{% static 'js/dashboard.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

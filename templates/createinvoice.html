@@ -1,0 +1,101 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+
+
+  <!-- create invoice -->
+<div class="dashboard-content add-ci">
+    <section class="add-con cipad"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card ci">
+                        <div class="card-header"><h4>Invoice Entry</h4></div>
+                        <div class="card-body bg-primary text-white">
+                            <form action="{% url 'create_invoice' %}" method="POST">
+                                {% csrf_token%}
+                                <div class="cl-head">
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="Name">Suplier-Name</label>
+                                            <input type="text" class="form-control" id="Name" placeholder="Name" name="suplier_name">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="date">Date</label>
+                                            <input type="date" class="form-control" id="date" placeholder="Date" name="date">
+                                         </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="Name">Mobile</label>
+                                            <input type="text" class="form-control" id="Name" placeholder="Mobile" name="mobile">
+                                        </div>
+                                        <div class="form-group col-6">
+                                           <label for="email">Email-id</label>
+                                           <input type="1234567890" class="form-control" id="Mobile" placeholder="Email" name="email">
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="cl-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label for="invoice_no">Invoice-No</label>
+                                            <input type="text" class="form-control" id="Name" placeholder="Invoice-No" name="invoice_number">
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                            <label for="Name">Select Master Product</label>
+                                            <select class="form-select form-control" aria-label="Default select example" name="select_category">
+                                                {% for category in selectCategory_inv %} 
+                                                <option >{{category.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="Name">Select Sub Product</label>
+                                              <select class="form-select form-control" aria-label="Default select example" name="select_product">
+                                                {% for results in selectProduct_inv %} 
+                                                <option >{{results.name}}</option>
+                                                {% endfor %}
+                                             </select>
+                                        </div>
+
+                                    </div> 
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                           <label for="qty">QTY</label>
+                                           <input type="number" class="form-control" id="qty" placeholder="QTY" name="qty">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label for="rate">RATE</label>
+                                            <input type="number" class="form-control" id="rate" placeholder="RATE" name="rate" >
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label for="Name">GST</label>
+                                            <input type="text" class="form-control" id="Name" placeholder="GST" name="gst">
+                                        </div>
+
+                                    </div> 
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label for="Name">MRP</label>
+                                            <input type="text" class="form-control" id="Name" placeholder="MRP" name="mrp" >
+                                        </div>
+                                    </div> 
+                                    <button type="submit" class="btn btn-success btn-block btn-sm ">submit</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+</div>
+
+
+
+{% endblock %}

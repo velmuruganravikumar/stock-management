@@ -1,0 +1,59 @@
+
+{% include 'navbar.html' %} 
+{% block content %}
+
+<!-- add client -->  
+<div class="dashboard-content add-client">
+    <section class="add-con ac"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-10">
+                    <div class="card add-cli">
+                        <div class="card-header text-center">
+                            <h3>ADD CLIENT</h3>
+                        </div>
+                            <div class="card-body bg-dark text-white">
+                                <form action="{% url 'update_client' updateClient.id %}" method="post" autocomplete="off">
+                                {% csrf_token  %}
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                        <label for="Name">Client Name</label>
+                                        <input type="text" class="form-control" id="Name" value="{{updateClient.client_name}}" name="clientname">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                        <label for="text  ">Shop Name</label>
+                                        <input type="text" class="form-control" id="Mobile" value="{{updateClient.shop_name}}" name="shopname">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-12">
+                                        <label for="number">Mobile</label>
+                                        <input type="number" class="form-control" id="Mobile" value="{{updateClient.mobile}}" name="mobile">
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="Mobile">Location</label>
+                                        <input type="text" class="form-control" id="Mobile" value="{{updateClient.location}}" name="location">
+                                    </div>
+                        
+                                    
+                                        <button type="submit" class="btn btn-primary mt-3 ml-1">Submit</button>
+                                        
+                                    
+                                <form>
+                
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+    </section>
+
+</div> 
+
+
+{% endblock %}
+                            
+                        
+    
+

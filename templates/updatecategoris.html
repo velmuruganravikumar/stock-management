@@ -1,0 +1,40 @@
+
+   
+  {% include 'navbar.html'%}
+   
+  {% block content %}
+
+  <!-- add account -->
+<div class="dashboard-content">
+    <section class="add-con add-pw"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8">
+                    <div class="card pw">
+                        <div class="card-header text-center"><h4>Add Categories</h4></div>
+                      <div class="card-body bg-dark text-white">
+
+                        <form  action="{% url 'categorie_update' cat_update.id %}" class="inline-block" method="post">
+                            {% csrf_token %}
+                                <div class="form-group col-md-12">
+                                  <label for="Name">Add Categories</label>
+                                  <input type="text" class="form-control" id="" name="add_categori" value="{{cat_update.name}}">
+                                </div>
+
+                                <div class="btn mt-4 ml-2">
+                                  <button type="save" class="btn btn-primary">Save</button>
+                               </div>
+                            
+                        <form>
+          
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     </section>
+
+</div>
+
+  {% endblock %}

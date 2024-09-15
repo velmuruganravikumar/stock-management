@@ -1,0 +1,48 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+    <!--manage master product -->
+
+<div class="dashboard-content mn-pro">
+    <section class="add-con mng-mpro"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8">
+                  
+                        <h4>Manage Master Product</h4>
+                        <table class="table table-bordered table-striped ">
+                            <thead class="table-dark">
+                              <tr>
+                                <th scope="col">S.no</th>
+                                <th scope="col">Master product</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
+                              </tr>
+                            </thead>
+                            {% for add_categoris in categories %}
+                            <tbody>
+                              
+                              <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{add_categoris.name}}</td>
+                                <td>
+                                  <a href="{% url 'categorie_update' add_categoris.id %}"><button class="btn btn-primary btn-sm">Update</button></a>
+                                </td>
+                                <td>
+                                  <a href="{% url 'categorie_delete' add_categoris.id %}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                </td>
+                              </tr>
+                            </tbody>
+                            {% endfor %}
+                          </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+{% endblock %}

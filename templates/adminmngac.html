@@ -1,0 +1,54 @@
+
+   
+{% include 'navbar.html' %}
+{% block content%}
+
+  <!-- admin manage account -->
+<div class="dashboard-content ad-mng">
+    <section class="add-con"> 
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-11">
+                    
+                    <h3>Manage Account</h3>  
+                    <table class="table table-bordered table-striped ">
+                      <thead class="table-dark">
+                        <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                      </thead>
+                        {% for admdata in user %}
+                        <tbody>
+                          <tr>
+                              <td>{{forloop.counter}}</th>
+                              <td>{{admdata.name}}</td>
+                              <td>{{admdata.mobile}}</td>
+                              <td>{{admdata.email}}</td>
+                              <td>{{admdata.address}}</td>
+                              <td>{{admdata.city}}</td>
+                              <td>
+                              <a href="{% url 'update' admdata.id %}"><button class="btn btn-primary btn-sm">Update</button></a>
+                              </td>
+                              <td>
+                              <a href="{% url 'delete' admdata.id %}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                              </td>
+                          </tr>
+                        </tbody>
+                        {% endfor %}
+                      </table>     
+                </div>
+            </div>
+         </div>
+    </section>
+</div>
+
+
+{% endblock %}
+

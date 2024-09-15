@@ -1,0 +1,318 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/* navbar */
+.navbar{
+    width:80vw;
+    margin-left:20vw;
+}
+
+/* sidebar */
+.sidebar {
+    width:20vw;
+    height: 100vh;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+    position:fixed;  
+    top:0px;
+    background-color:hsl(244, 71%, 19%);
+}
+.logout{
+    font-size: 30px;
+}
+
+.sidebar i{
+    padding-right:15px;
+}
+
+
+.sidebar .nav-link.active {
+    background-color: #495057;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #495057;
+}
+
+.down{
+    display:none;
+    
+    
+}
+.disp{
+    display:block;
+    list-style: none;
+}
+
+/* dashboard */
+
+.dashboard-content{
+    margin-left:20%;
+    margin-top:7%;
+    
+}
+
+.card i{
+    font-size:45px;
+}
+
+/* admin */
+.ad-mng{
+    margin-top:7%;
+    height:50vh;   
+}
+.add-con .ad-cd{
+    height:50vh;  
+    margin-left:100px;
+}
+
+/* admin add account */
+
+/* .ad-ad{
+    height:100vh;
+    margin-top:7%;
+} */
+
+.add-con .ad-adac{
+    height:100%;  
+    margin-left:100px;
+}
+
+/* password */
+.add-pw{
+    height:80vh;
+    
+}
+.add-con .pw{
+    height:50vh;
+    
+}
+
+/* manage master product */
+
+.mn-pro{
+    margin-top:7%;
+    margin-left:30vw;
+    height:80vh;
+}
+.add-con .mngpro{
+    height:80vh;
+}
+
+/* addsubproduct */
+
+.add-subpro{
+    width:80vw;
+    height:60vh;
+}
+.add-con .addsub{
+    height:60vh;
+}
+
+/* manage subproduct */
+.add-con .mng-sub{
+    height:80vh;
+}
+
+/* invoicetry */
+.add-invetry{
+
+    margin-left:20%;
+    margin-right: 3%;
+    
+}
+.sidebar .active{
+    background-color:#495057;
+}
+.add-con .invetry{
+    height:75vh;
+}
+.inventpad{
+    padding-top:1px;
+}
+.ie{
+    margin-left: 20%;
+    margin-top: 10px;
+    
+}
+.submit{
+    margin-left:40%;
+}
+
+
+/* create invoice */
+.add-ci{
+    margin-left:20%;
+    margin-right:3%;
+    
+}
+.add-con .ci{
+    height:100vh;
+    font-size: 15px;
+}
+.cipad{
+    padding-top:1px;
+}
+
+/* search invoice */
+
+.sr-inv{
+    margin-left:20%;
+    margin-right:3%;
+}
+.add-con .search-inv{
+    height:40vh;
+}
+.add-con .si-tbl{
+    margin-top:5%;
+}
+.add-con .tbl-card{
+    height:100vh;
+}
+
+/* add client */
+
+.add-client{
+    margin-right:2%;
+}
+.add-con .add-cli{
+    height:90vh;
+}
+
+.ac{
+    height:90vh;
+}
+
+/* client sales entry */
+.cl-sl{
+    margin-top:8%;
+}
+.add-con .cl-slent{
+    height:90vh;
+}
+
+/* clint detailes */
+
+.add-con .cl-de{
+    height:80vh;
+    
+}
+.c-d{
+    margin-right: 5%;
+}
+.cd{
+    height:80vh;
+    
+}
+
+/* customer sales entry */
+.cu-sl{
+    margin-top: 7%;
+    
+}
+.add-con .cu-slent{
+    height:90vh;
+}
+
+/* stock report */
+
+.add-con .st-rp{
+    height:70vh;
+}
+
+
+/*  total customer sales*/
+
+.add-con .t-cust{
+    height:50vh;
+    
+}
+.add-con .t-cust2{
+    margin-top:20vh;
+    height:60vh;
+    
+}
+
+/* @media(max-width:767px){
+    .col-1{
+        width:8.33%;
+    }
+    .col-2{
+        width:16.66%;
+    }
+    .col-3{
+        width:25%;
+    }
+    .col-4{
+        width:33.33%;
+    }
+    .col-5{
+        width:41.65%;
+    }
+    .col-6{
+        width:50%
+    }
+    .col-7{
+        width:58.33%;
+    }
+    .col-8{
+        width:66.46%;
+    }
+    .col-9{
+        width:75%;
+    }
+    .col-10{
+        width:83.30%;
+    }
+    .col-11{
+        width:91.63%;
+    }
+    .col-12{
+        width:100%
+    }
+
+}
+@media(min-width:768px){
+    .col-md-1{
+        width:8.33%;
+    }
+    .col-md-2{
+        width:16.66%;
+    }
+    .col-md-3{
+        width:25%;
+    }
+    .col-md-4{
+        width:33.33%;
+    }
+    .col-md-5{
+        width:41.65%;
+    }
+    .col-md-6{
+        width:50%
+    }
+    .col-md-7{
+        width:58.33%;
+    }
+    .col-md-8{
+        width:66.46%;
+    }
+    .col-md-9{
+        width:75%;
+    }
+    .col-md-10{
+        width:83.30%;
+    }
+    .col-md-11{
+        width:91.63%;
+    }
+    .col-md-12{
+        width:100%
+    }
+
+
+} */

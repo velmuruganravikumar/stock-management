@@ -1,0 +1,51 @@
+{% include 'navbar.html' %}
+{% block content%}
+
+  <!-- add account -->
+<div class="dashboard-content">
+    <section class="add-con"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                  <table class="table table-bordered table-striped table-responsive">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">S.no</th>
+                        <th scope="col">CustomerName</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Mrp</th>
+                        <th scope="col">TotalRate</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Location</th>
+                      </tr>
+                    </thead>
+                    {% for invoice in cus_manage %}
+                    <tbody>
+                      <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{invoice.customer_name}}</td>
+                        <td>{{invoice.select_category}}</td>
+                        <td>{{invoice.select_product}}</td>
+                        <td>{{invoice.qty}}</td>
+                        <td>{{invoice.rate}}</td>
+                        <td>{{invoice.mrp}}</td>
+                        <td>{{invoice.total}}</td>
+                        <td>{{invoice.date}}</td>
+                        <td>{{invoice.mobile}}</td>
+                        <td>{{invoice.location}}</td>
+                      </tr>
+                    </tbody>
+                    {% endfor %}
+          </table> 
+                </div>
+            </div>
+        </div>
+     </section>
+</div>
+
+
+{% endblock %}

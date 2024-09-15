@@ -1,0 +1,53 @@
+{% include 'navbar.html' %}
+
+{% block content%}
+
+
+  <!-- search invoice -->
+<div class="dashboard-content st-rpt">
+    <section class="add-con"> 
+        <div class="container-fluid">
+          <h3>STOCK REPORT</h3>
+            <div class="row">
+                <div class="col-8">
+                     <h4>Gategory</h4>
+                    <div class="table">
+                        <table class="table table-bordered table striped">
+                          <thead class="table-dark">
+                            <tr>
+                              <th scope="col">S.no</th>
+                              <th scope="col">Product</th>
+                              <th scope="col">Qty</th>
+                              <th scope="col">Min-qty</th>
+                              <th scope="col">Order</th>
+                            </tr>
+                          </thead>
+                          {% for product, quantity in pro_qty_list %}
+                             
+                          <tbody>
+                            <tr>
+                              <td>{{forloop.counter}}</td>
+                              <td>{{product}}</td>
+                              <td>{{quantity}}</td>
+                              <td>5</td>
+                              {% if quantity >= 5 %}
+                                 <td> available</td>
+                              {% else %}
+                                 <td style="color:red;"> place order</td>
+                              {% endif %}
+                            </tr>
+                          </tbody>
+                            
+                          {% endfor %}
+                        </table>      
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
+
+ 

@@ -1,0 +1,79 @@
+
+   
+{% include 'navbar.html' %}
+{% block content%}
+
+  <!-- admin manage account -->
+<div class="dashboard-content ad-mng">
+    <section class="add-con"> 
+         <div class="container-fluid">
+              {% comment %} <div class="row">
+                <div class="col-10">
+                    <h4>Client Vise Sales</h4>
+                    <div class="card-body bg-dark text-white">
+                      <form action="{% url 'clientsales_manage' %}" method="post">
+                         {% csrf_token %}
+                          <div class="form-group col-12 ">
+                              <input type="text" class="form-control" id="Name" placeholder="ENTER CLIENT NAME" name="clientname" value="{{name|default_if_none:''}}">
+                          </div>
+      
+                          <div class="btn">
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                          </div>
+                       
+                      <form>         
+                    </div>
+                
+                </div>
+              </div> {% endcomment %}
+              <div class="row">
+                <div class="col-12"> 
+                    <table class="table table-bordered table-striped table-responsive">
+                      <thead class="table-dark">
+                        <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">client_name</th>
+                            <th scope="col">date</th>
+                            <th scope="col">shop_name</th>
+                            <th scope="col">select_category</th>
+                            <th scope="col">select_product</th>
+                            <th scope="col">mrp</th>
+                            <th scope="col">qty</th>
+                            <th scope="col">rate</th>
+                            <th scope="col">total_amound</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                      </thead>
+                        {% for clientsale in cls %}
+                        <tbody>
+                          <tr>
+                              <td>{{forloop.counter}}</th>
+                              <td>{{clientsale.client}}</td>
+                              <td>{{clientsale.date}}</td>
+                              <td>{{clientsale.shop}}</td>
+                              <td>{{clientsale.select_category}}</td>
+                              <td>{{clientsale.select_product}}</td>
+                              <td>{{clientsale.mrp}}</td>
+                              <td>{{clientsale.qty}}</td>
+                              <td>{{clientsale.rate}}</td>
+                              <td>{{clientsale.total}}</td>
+                              <td>
+                              <a href="#"><button class="btn btn-primary btn-sm">Update</button></a>
+                              </td>
+                              <td>
+                              <a href="#"><button class="btn btn-danger btn-sm">Delete</button></a>
+                              </td>
+                          </tr>
+                        </tbody>
+                        {% endfor %}
+                      </table>     
+                </div>
+            </div>
+         </div>
+    </section>
+</div>
+
+
+{% endblock %}
+

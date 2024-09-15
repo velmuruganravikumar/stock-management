@@ -1,0 +1,53 @@
+
+{% include 'navbar.html'%}
+   
+{% block content %}
+
+<!-- add subproduct-->
+<div class="dashboard-content add-subpro ">
+  <section class="add-con "> 
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-8">
+                  <div class="card addsub">
+                      <div class="card-header text-center"><h3>Update Product</h3></div>
+                    <div class="card-body bg-dark text-white">
+                      <form action="{% url 'product_update' pro_up.id %}"  method="post" autocomplete="off">
+                        {% csrf_token %}
+                              <div class="form-group col-md-12">
+                                
+                                    <label for="Name">Select Master Product</label>
+                                    <select class="form-select form-control"  name="selectcategory" >
+                                       {% comment %} <option selected>Open this select menu</option> {% endcomment %}
+                                       {% for results in update_cat %} 
+                                       <option >{{results.name}}</option>
+                                       {% endfor %}
+                                  
+                                   </select>
+                                 
+                              </div>
+                               
+                              <div class="form-group col-md-12">
+                                <label for="Name">Update Product</label>
+                                <input type="text" class="form-control" id="Name" name="addproducts" value="{{pro_up.name}}">
+                              </div>
+
+                              <div class="btn mt-4 ml-2">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                             </div>
+                          
+                      <form>
+        
+                   </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+   </section>
+
+</div>
+
+ {% endblock %}
+
+ {% comment %} aria-label="Default select example" {% endcomment %}

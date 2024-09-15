@@ -1,0 +1,79 @@
+{% include 'navbar.html' %}
+{% block content%}
+
+  <!-- search invoice -->
+<div class="dashboard-content sr-inv">
+    <section class="add-con"> 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                        <h4>SEARCH INVOICE</h4>
+                        <div class="card-body bg-dark text-white">
+                          <form action="{% url 'search_invoice' %}" method="post">
+                             {% csrf_token %}
+                              <div class="form-group col-12 ">
+                                  <input type="text" class="form-control" id="Name" placeholder="ENTER INVOICE NUMBER" name="invoice_number" value="{{query|default_if_none:''}}">
+                              </div>
+          
+                              <div class="btn">
+                                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                              </div>
+                           
+                          <form>         
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="row si-tbl">   
+              <table class="table table table-bordered table-striped table-responsive">
+                        <thead class="table-dark">
+                          <tr>
+                            <th scope="col">S.no</th>
+                            <th scope="col">SuplierName</th>
+                            <th scope="col">InvoiceNumber</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Rate</th>
+                            <th scope="col">Gst</th>
+                            <th scope="col">GstAmound</th>
+                            <th scope="col">Mrp</th>
+                            <th scope="col">TotalRate</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mobile</th>
+                          </tr>
+                        </thead>
+                        {% for entry in results %}
+                        <tbody>
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{entry.supplier_name}}</td>
+                            <td>{{entry.invoice_number}}</td>
+                            <td>{{entry.select_category}}</td>
+                            <td>{{entry.select_product}}</td>
+                            <td>{{entry.qty}}</td>
+                            <td>{{entry.rate}}</td>
+                            <td>{{entry.gst_percentage}}</td>
+                            <td>{{entry.gst_amount}}</td>
+                            <td>{{entry.mrp}}</td>
+                            <td>{{entry.total_amound}}</td>
+                            <td>{{entry.date}}</td>
+                            <td>{{entry.email}}</td>
+                            <td>{{entry.mobile}}</td>
+                      
+                          </tr>
+                        </tbody>
+                        {% endfor %}
+              </table>  
+            </div>
+        </div>
+     </section>
+</div>
+
+
+{% endblock %}
+
+
+
+
