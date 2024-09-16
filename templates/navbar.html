@@ -21,12 +21,13 @@
 </nav>
 
 <!-- Sidebar -->
+{% load active_link_tags %}
 
 <nav class=" d-md-block  sidebar" style="min-width:17vw;">
     <div class="sidebar-sticky">
       <ul class="nav flex-column">
 
-          <li class="nav-item p-2 border-bottom" onclick="dropdown(0)">
+          <li class="nav-item p-2 border-bottom " onclick="dropdown(0)">
             <a class="h2 nav-link text-white" href="#"><i class="fas fa-user"></i>Admin</a>
             <ul class="down">
               <li><a href="{% url 'adminmng' %}" class="nav-link text-white">Manage your Account</a></li>
@@ -34,14 +35,14 @@
             </ul>
           </li>
 
-          <li class="nav-item p-2 mt-3 {% if request.path == '/dashboard' %}active{% endif %}">
+          <li class="nav-item p-2 mt-3 {% active_link 'dashboard' 'active' %}">
             
             <a class="nav-link text-white" href="{% url 'dashboard' %} "><i class="fas fa-qrcode"></i>
               Dashboard
             </a>
           </li>
 
-         <li class="nav-item p-2" onclick="dropdown(1)">
+         <li class="nav-item p-2 {% active_link 'addcategories' 'active' %} {% active_link 'managecategories' 'active' %}" onclick="dropdown(1)">
           <a class="nav-link text-white" href="#"><i class="fas fa-link"></i>categories</a>
             <ul class="down">
               <li><a class="nav-link text-white" href="{% url 'addcategories' %}">Add categories</a></li>
@@ -49,7 +50,7 @@
             </ul>
          </li>
 
-        <li class="nav-item p-2" onclick="dropdown(2)">
+        <li class="nav-item p-2 {% active_link 'addproducts' 'active' %} {% active_link 'manageproducts' 'active' %}" onclick="dropdown(2)">
           <a class="nav-link text-white" href="#"><i class="fas fa-stream"></i>Products</a>
           <ul class="down">
             <li><a class="nav-link text-white" href="{% url 'addproducts' %} ">Add Products</a></li>
@@ -57,7 +58,7 @@
           </ul>
         </li>
 
-        <li class="nav-item p-2"  onclick="dropdown(3)">
+        <li class="nav-item p-2 {% active_link 'create_invoice' 'active' %} {% active_link 'manage_invoice' 'active' %} {% active_link 'search_invoice' 'active' %}"  onclick="dropdown(3)">
           <a class="nav-link text-white" href="#"><i class="fas fa-calendar-week"></i>Invoice</a>
            <ul class="down">
              <li><a class="nav-link text-white" href=" {% url 'create_invoice' %}">Creat Invoice</a></li>
@@ -66,7 +67,7 @@
            </ul>
         </li>
 
-        <li class="nav-item p-2" onclick="dropdown(4)">
+        <li class="nav-item p-2 {% active_link 'add_client' 'active' %} {% active_link 'client_Sales' 'active' %} {% active_link 'client_Details' 'active' %}" onclick="dropdown(4)">
           <a class="nav-link text-white" href="#"><i class="fas fa-question-circle"></i>clients</a>
           <ul class="down">
             <li><a class="nav-link text-white" href=" {% url 'add_client' %}">Add Client</a></li>
@@ -76,7 +77,7 @@
           </ul>
         </li>
 
-        <li class="nav-item p-2" onclick="dropdown(5)">
+        <li class="nav-item p-2 {% active_link 'customer_Sales' 'active' %} {% active_link 'customermanage' 'active' %} " onclick="dropdown(5)">
           <a class="nav-link text-white" href="#"><i class="fas fa-sliders-h"></i>Customers</a>
           <ul class="down">
             <li><a class="nav-link text-white" href=" {% url 'customer_Sales' %}">Customer Sales Entry</a></li>
@@ -84,7 +85,7 @@
           </ul>
         </li>
 
-        <li class="nav-item p-2 ">
+        <li class="nav-item p-2 {% active_link 'stock_Report' 'active' %}">
           <a class="nav-link text-white" href="{% url 'stock_Report' %}"><i class="fas fa-comments"></i>
             Stock-Reports
           </a>

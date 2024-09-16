@@ -432,6 +432,7 @@ def customer_manage(request):
 def stock_Report(request):
   sr_cat=invoiceEntry.objects.all()
   cl_sal=clientSales.objects.all()
+  cus_sal=customerSales.objects.all()
 
   pro_qty = {}
 
@@ -441,13 +442,24 @@ def stock_Report(request):
             pro_qty[product] = i.qty
         else:
             pro_qty[product] += i.qty
+            
 
   for j in cl_sal:
+    
         product = j.select_product
         if product in pro_qty:
             pro_qty[product] -= j.qty
         else:
             pro_qty[product] = -j.qty
+            
+            
+  for c in cus_sal:
+        c_product=c.select_product
+        if c_product in pro_qty:
+            pro_qty[c_product] -= c.qty
+        else:
+            pro_qty[c_product] = -c.qty
+     
 
   pro_qty_list = zip(pro_qty.keys(),pro_qty.values())
   
